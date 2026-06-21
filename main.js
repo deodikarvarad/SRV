@@ -336,6 +336,21 @@ document.querySelectorAll('.enquiry-form').forEach(form => {
 });
 
 /* ---------------------------------------------
+   STICKY HEADER: swap to dark gradient on scroll
+--------------------------------------------- */
+(function initStickyHeader() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  function onScroll() {
+    header.classList.toggle('site-header--scrolled', window.scrollY > header.offsetHeight);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ---------------------------------------------
    MARQUEE: pause/resume via keyboard focus
    (handled in CSS via :focus-within; JS below
     is an extra safety net for older browsers)

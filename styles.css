@@ -128,15 +128,17 @@ a { color: inherit; }
 
 /* Submit button */
 .btn--submit {
-  background: var(--c-navy);
+  background: transparent;
   color: var(--c-white);
-  width: 100%;
-  border: none;
+  width: 50%;
+  border: 2px solid var(--c-white);
+  min-height: 2rem;
 }
 .btn--submit .btn__icon-box {
-  background: rgba(255,255,255,0.15);
+  background: var(--c-white);
   height: 44px;
   width: 44px;
+  color: var(--c-purple-mid);
 }
 .btn--submit span:last-child {
   padding: 0 1.5rem;
@@ -181,6 +183,18 @@ a { color: inherit; }
   background: #ffffff;
   height: 75px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.site-header--scrolled {
+  background: linear-gradient(90deg, #07143B 0%, #231159 42%, #552079 100%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.site-header--scrolled .btn--register {
+  background: var(--c-white);
+  border-color: var(--c-purple-mid);
+  color: var(--c-purple-mid);
 }
 
 .site-header__container {
