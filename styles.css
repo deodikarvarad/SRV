@@ -144,7 +144,7 @@ a { color: inherit; }
 .btn--submit {
   background: transparent;
   color: var(--c-white);
-  width: 50%;
+  width: 60%;
   border: 2px solid var(--c-white);
   min-height: 2rem;
   position: relative;
