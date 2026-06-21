@@ -1,14 +1,6 @@
-/**
- * Premier Schools Exhibition - main.js
- * Handles: hero slider (dual-axis), school-types mobile slider,
- *          must-visit feature slider, marquee pause, swipe support
- */
-
 'use strict';
 
-/* ---------------------------------------------
-   Utility: swipe detection
---------------------------------------------- */
+// swipe detection
 function addSwipeSupport(el, { onLeft, onRight, onUp, onDown } = {}) {
   let startX = 0, startY = 0;
   el.addEventListener('touchstart', e => {
@@ -28,13 +20,10 @@ function addSwipeSupport(el, { onLeft, onRight, onUp, onDown } = {}) {
   }, { passive: true });
 }
 
-/* Respect user's reduced-motion preference */
+// reduced-motion check
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------------------------------------------
-   Generic Slider factory
-   Returns controls object { goTo, prev, next }
---------------------------------------------- */
+// slider factory
 function createSlider({
   track,
   getCardWidth,
@@ -86,9 +75,7 @@ function createSlider({
   return { goTo, prev, next, getCurrent: () => current };
 }
 
-/* ---------------------------------------------
-   HERO SLIDER (dual-axis: H swipe + Y keypress)
---------------------------------------------- */
+// hero slider
 (function initHeroSlider() {
   const sliderEl = document.querySelector('[data-hero-slider]');
   if (!sliderEl) return;
@@ -139,20 +126,18 @@ function createSlider({
     onRight: () => slider.prev(),
   });
 
-  /* Keyboard: left/right + up/down (dual-axis) */
+  /* keyboard nav */
   sliderEl.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowUp')   { e.preventDefault(); slider.prev(); }
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); slider.next(); }
   });
 
-  /* Window resize: recalculate position */
+  /* resize */
   window.addEventListener('resize', () => slider.goTo(slider.getCurrent()), { passive: true });
   updateDots(0);
 })();
 
-/* ---------------------------------------------
-   SCHOOL TYPES SLIDER (mobile only)
---------------------------------------------- */
+// school types slider (mobile only)
 (function initSchoolTypesSlider() {
   const sliderEl = document.querySelector('[data-school-slider]');
   if (!sliderEl) return;
@@ -205,9 +190,7 @@ function createSlider({
   }, { passive: true });
 })();
 
-/* ---------------------------------------------
-   MUST-VISIT FEATURE SLIDER
---------------------------------------------- */
+// feature slider
 (function initFeatureSlider() {
   const sliderEl = document.querySelector('[data-feature-slider]');
   if (!sliderEl) return;
@@ -284,9 +267,7 @@ function createSlider({
   initOrReset();
 })();
 
-/* ---------------------------------------------
-   ENQUIRY FORM - client-side validation
---------------------------------------------- */
+// form validation
 document.querySelectorAll('.enquiry-form').forEach(form => {
   const inputs = [
     form.querySelector('[name="parent_name"]'),
@@ -302,7 +283,7 @@ document.querySelectorAll('.enquiry-form').forEach(form => {
     return !invalid;
   }
 
-  /* Clear error on input */
+  /* clear errors while typing */
   inputs.forEach(input => {
     input.addEventListener('input', () => {
       if (input.getAttribute('aria-invalid') === 'true') validateInput(input);
@@ -334,16 +315,14 @@ document.querySelectorAll('.enquiry-form').forEach(form => {
     }, 3000);
       }
     } else {
-      /* Focus first invalid field */
+      /* focus first error */
       const firstInvalid = inputs.find(i => i.getAttribute('aria-invalid') === 'true');
       firstInvalid?.focus();
     }
   });
 });
 
-/* ---------------------------------------------
-   STICKY HEADER: swap to dark gradient on scroll
---------------------------------------------- */
+// sticky header
 (function initStickyHeader() {
   const header = document.querySelector('.site-header');
   if (!header) return;
@@ -356,11 +335,7 @@ document.querySelectorAll('.enquiry-form').forEach(form => {
   onScroll();
 })();
 
-/* ---------------------------------------------
-   MARQUEE: pause/resume via keyboard focus
-   (handled in CSS via :focus-within; JS below
-    is an extra safety net for older browsers)
---------------------------------------------- */
+// marquee pause on focus (CSS :focus-within handles modern browsers; this is a fallback)
 document.querySelectorAll('.schools__marquee-row').forEach(row => {
   row.addEventListener('focusin',  () => {
     row.querySelectorAll('.schools__marquee-inner').forEach(inner => {
