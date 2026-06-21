@@ -314,18 +314,24 @@ document.querySelectorAll('.enquiry-form').forEach(form => {
     const allValid = inputs.map(validateInput).every(Boolean);
 
     if (allValid) {
-      const btn = form.querySelector('button[type="submit"]');
-      const label = btn.querySelector('span:last-child');
-      if (label) {
-        const original = label.textContent;
-        label.textContent = 'Thank you!';
-        btn.disabled = true;
-        setTimeout(() => {
-          label.textContent = original;
-          btn.disabled = false;
-          form.reset();
-          inputs.forEach(i => i.removeAttribute('aria-invalid'));
-        }, 3000);
+  const btn = form.querySelector('.btn--submit');
+  const label = btn.querySelector('.btn__text');
+
+  if (label) {
+    const original = label.textContent;
+
+    btn.classList.add('is-success');
+    label.textContent = 'Thank you!';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.classList.remove('is-success');
+
+      label.textContent = original;
+      btn.disabled = false;
+      form.reset();
+      inputs.forEach(i => i.removeAttribute('aria-invalid'));
+    }, 3000);
       }
     } else {
       /* Focus first invalid field */
@@ -365,5 +371,17 @@ document.querySelectorAll('.schools__marquee-row').forEach(row => {
     row.querySelectorAll('.schools__marquee-inner').forEach(inner => {
       inner.style.animationPlayState = '';
     });
+  });
+});
+
+document.querySelectorAll('.click-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+
+    this.classList.add('clicked');
+
+    setTimeout(() => {
+      this.classList.remove('clicked');
+    }, 2000); // reset after 2 sec
+
   });
 });

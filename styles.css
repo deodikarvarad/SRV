@@ -103,6 +103,29 @@ a { color: inherit; }
   outline-offset: 3px;
 }
 
+.click-arrow--straight {
+  display: none;
+}
+
+.click-btn.clicked .click-arrow--cross {
+  display: none;
+}
+
+.click-btn.clicked .click-arrow--straight { 
+  display: block;
+}
+
+.click-btn.clicked {
+  background: var(--c-purple-dark) !important;
+  border-color: var(--c-purple-mid) !important;
+  color: var(--c-white) !important;
+}
+
+.click-btn.clicked .btn__icon-box {
+  background: var(--c-purple-dark) !important;
+  color: var(--c-white) !important;
+}
+
 /* Shared icon box on the left of buttons */
 .btn__icon-box {
   display: flex;
@@ -120,7 +143,7 @@ a { color: inherit; }
   color: var(--c-navy);
 }
 .btn--register .btn__icon-box {
-  background: var(--c-navy);
+  background: var(--hero-gradient);
   color: var(--c-white);
 }
 .btn--register span:last-child {
@@ -158,7 +181,7 @@ a { color: inherit; }
   align-self: flex-start;
 }
 .btn--preschedule .btn__icon-box {
-  background: var(--c-navy);
+  background: var(--c-purple-mid);
   color: var(--c-white);
   height: 44px;
   width: 44px;
@@ -171,6 +194,53 @@ a { color: inherit; }
   letter-spacing: 0.06em;
   font-weight: 700;
   font-size: 0.8125rem;
+}
+
+.btn--submit {
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.btn__icon-box {
+  position: relative;
+}
+
+.submit-arrow {
+  position: absolute;
+  transition: all 0.4s ease;
+}
+
+/* Cross arrow visible initially */
+.submit-arrow--cross {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Straight arrow hidden initially */
+.submit-arrow--straight {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Success State */
+.btn--submit.is-success {
+  background: #fff;
+  color: var(--c-purple-mid);
+  border-color: #fff;
+}
+
+.btn--submit.is-success .btn__icon-box {
+  background: #fff;
+}
+
+.btn--submit.is-success .submit-arrow--cross {
+  opacity: 0;
+  transform: scale(0.5) rotate(45deg);
+}
+
+.btn--submit.is-success .submit-arrow--straight {
+  opacity: 1;
+  transform: scale(1) translateX(5px);
 }
 
 /* =========================
@@ -882,14 +952,15 @@ a { color: inherit; }
   height: 60px;
   border-radius: 50%;
   background: transparent;
-  border: 2px solid rgba(255,255,255,0.5);
+  border: 2px solid var(--c-white);
   color: var(--c-white);
   cursor: pointer;
   transition: background var(--transition), border-color var(--transition);
 }
 .must-visit__btn:hover {
-  background: rgba(255,255,255,0.15);
-  border-color: var(--c-white);
+  background: var(--c-white);
+  border-color: var(--purple-dark);
+  color: var(--c-purple-dark);
 }
 .must-visit__btn:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 3px; }
 .must-visit__btn:disabled { opacity: 0.35; cursor: default; }
