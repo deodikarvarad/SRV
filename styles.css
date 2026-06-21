@@ -1020,20 +1020,28 @@ a { color: inherit; }
 @media (max-width: 768px) {
   :root { --container-pad: 1rem; }
 
+  body {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
   /* Header */
   .site-header__container { padding-block: 0.45rem; }
   .site-header__logo { width: 110px; }
 
   .btn--register span:last-child { padding: 0 0.85rem; }
   .btn__icon-box { width: 34px; height: 34px; }
+  .btn {
+    font-size: clamp(0.78rem, 2.7vw, 0.92rem);
+  }
 
   /* Hero */
   .hero__slide { padding: 0 var(--container-pad); }
   .hero__slide-inner {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    gap: 1.35rem;
-    padding: 2rem 0 4.4rem;
+    gap: 1.15rem;
+    padding: 1.35rem 0 3.8rem;
   }
   .hero__photos,
   .hero__text,
@@ -1041,26 +1049,91 @@ a { color: inherit; }
     grid-column: auto;
     grid-row: auto;
   }
-  .hero__title { font-size: clamp(2.05rem, 10vw, 3.1rem); }
+  .hero__photos {
+    order: 1;
+    height: clamp(315px, 86vw, 420px);
+    overflow: hidden;
+    gap: clamp(0.65rem, 2.5vw, 1rem);
+  }
+  .hero__vcol-inner {
+    gap: clamp(0.75rem, 2.4vw, 1rem);
+  }
+  .hero__vimg {
+    height: clamp(185px, 51vw, 250px);
+    object-fit: cover;
+  }
+  .hero__text {
+    order: 2;
+    text-align: left;
+  }
+  .hero__title {
+    font-size: clamp(2.05rem, 9.6vw, 3rem);
+    line-height: 1.12;
+    margin-bottom: 0.45rem;
+  }
+  .hero__subtitle {
+    font-size: clamp(0.95rem, 3.7vw, 1.15rem);
+    margin-bottom: 1.1rem;
+  }
   .hero__event-badge {
     width: 100%;
-    justify-content: center;
-    padding-inline: 1rem;
+    justify-content: flex-start;
+    padding: 0.85rem 1rem;
+    font-size: clamp(0.82rem, 3.25vw, 1rem);
   }
-  .hero__photos { height: 280px; overflow: hidden; order: 0; }
-  .hero__vimg { height: 170px; }
-  .hero__text { order: -1; }
-  .hero__form-wrap { max-width: none; }
+  .hero__event-sep {
+    margin: 0 0.8rem;
+  }
+  .hero__form-wrap {
+    order: 3;
+    max-width: none;
+    padding: 1.25rem;
+  }
+  .hero__form-title {
+    font-size: clamp(1.25rem, 4.6vw, 1.55rem);
+  }
+  .enquiry-form__input {
+    min-height: 44px;
+    font-size: clamp(0.92rem, 3.6vw, 1rem);
+  }
+  .enquiry-form__textarea {
+    min-height: 92px;
+  }
+  .btn--submit span:last-child,
+  .btn--submit .btn__icon-box {
+    height: 46px;
+  }
 
   /* Stats */
-  .stats__container { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-  .stats__bg { max-width: 160px; }
+  .stats {
+    padding: 2.2rem var(--container-pad) 2.4rem;
+  }
+  .stats__container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+  .stats__bg { max-width: min(42vw, 176px); }
 
   /* Schools marquee */
+  .schools {
+    padding: 2.3rem 0;
+  }
+  .schools__title,
+  .school-types__title,
+  .must-visit__title {
+    font-size: clamp(1.55rem, 6.2vw, 2.15rem);
+    line-height: 1.18;
+  }
   .schools__logo { min-width: 190px; height: 84px; }
   .schools__marquee-inner { gap: 0.75rem; }
 
   /* School types: convert to horizontal slider on mobile */
+  .school-types {
+    padding: 2.7rem var(--container-pad);
+  }
+  .school-types__title {
+    margin-bottom: 1.5rem;
+  }
   .school-types__slider { overflow: hidden; }
   .school-types__track {
     display: flex;
@@ -1071,6 +1144,15 @@ a { color: inherit; }
   .school-card {
     min-width: 80vw;
     aspect-ratio: 1.04;
+  }
+  .school-card__overlay {
+    padding: 1.1rem;
+  }
+  .school-card__title {
+    font-size: clamp(1rem, 4vw, 1.18rem);
+  }
+  .school-card__desc {
+    font-size: clamp(0.86rem, 3.35vw, 0.96rem);
   }
   .school-types__dots { display: flex; }
 
@@ -1087,42 +1169,85 @@ a { color: inherit; }
     padding: 3rem var(--container-pad);
     max-width: 26rem;
   }
+  .preschedule__eyebrow,
+  .preschedule__sub {
+    font-size: clamp(1rem, 4.3vw, 1.25rem);
+  }
+  .preschedule__heading {
+    font-size: clamp(2rem, 8.4vw, 3rem);
+  }
 
   /* Must-visit remains a swipeable slider on mobile */
   .must-visit {
-    background-size: 100% 92px, cover;
+    /* background-size: 100% 110px, cover; */
   }
-  .must-visit__container { padding: 3.5rem 0 7.2rem; }
+  /* .must-visit__container { padding: 3.4rem 0 7.4rem; } */
+  .must-visit__title {
+    margin: 0 var(--container-pad) 2rem;
+  }
   .must-visit__slider-wrap {
     overflow: hidden;
     padding-left: var(--container-pad);
+    padding-right: var(--container-pad);
   }
   .must-visit__track {
     display: flex;
-    gap: 1rem;
+    gap: 1.05rem;
     transition: transform 0.45s ease;
+    scroll-snap-type: x mandatory;
   }
   .feature-card {
-    flex-basis: min(78vw, 330px);
-    min-width: min(78vw, 330px);
-    width: min(78vw, 330px);
-    min-height: 260px;
-    border-radius: 12px;
+    flex: 0 0 min(82vw, 360px);
+    min-width: min(82vw, 360px);
+    width: min(82vw, 360px);
+    min-height: clamp(300px, 72vw, 360px);
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 1.5rem;
+    scroll-snap-align: start;
+  }
+  .feature-card__icon {
+    width: clamp(52px, 13vw, 64px);
+    height: clamp(52px, 13vw, 64px);
+    margin-bottom: 1.55rem;
+  }
+  .feature-card__title {
+    font-size: clamp(1.15rem, 4.7vw, 1.42rem);
+    line-height: 1.28;
+    margin-bottom: 0.8rem;
+  }
+  .feature-card__desc {
+    font-size: clamp(0.98rem, 3.8vw, 1.12rem);
+    line-height: 1.48;
   }
   .must-visit__nav { display: flex; }
-  .must-visit__dots { display: flex; }
+  .must-visit__dots {
+    display: flex;
+    margin-top: 1.35rem;
+  }
   .must-visit__nav {
-    margin-top: 1.5rem;
-    padding-right: var(--container-pad);
+    margin-top: 1.15rem;
+    padding-right: 0;
   }
   .must-visit__btn {
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
   }
 
   /* Footer */
-  .site-footer__addresses { grid-template-columns: 1fr; gap: 1.5rem; }
-  .site-footer__container { padding-top: 2.5rem; }
+  .site-footer__addresses {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    font-size: clamp(0.9rem, 3.4vw, 1rem);
+  }
+  .site-footer__container {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .site-footer__bottom {
+    font-size: clamp(0.78rem, 3vw, 0.9rem);
+  }
 }
 
 /* ============================================================
@@ -1130,21 +1255,24 @@ a { color: inherit; }
    ============================================================ */
 @media (max-width: 480px) {
   .stats__container { grid-template-columns: repeat(2, 1fr); }
-  .hero__photos { height: 245px; gap: 0.8rem; }
-  .hero__vcol-inner { gap: 0.8rem; }
-  .hero__vimg { height: 150px; }
+  .hero__photos {
+    height: clamp(290px, 89vw, 360px);
+    gap: 0.72rem;
+  }
+  .hero__vcol-inner { gap: 0.72rem; }
+  .hero__vimg { height: clamp(178px, 54vw, 220px); }
   .hero__event-badge {
     align-items: flex-start;
-    font-size: 0.78rem;
+    font-size: clamp(0.76rem, 3.35vw, 0.9rem);
   }
-  .school-types__title,
-  .must-visit__title {
-    font-size: 1.65rem;
+  .hero__event-sep {
+    margin: 0 0.55rem;
   }
   .feature-card {
-    flex-basis: calc(100vw - 4rem);
-    min-width: calc(100vw - 4rem);
-    width: calc(100vw - 4rem);
+    flex-basis: calc(100vw - 3rem);
+    min-width: calc(100vw - 3rem);
+    width: calc(100vw - 3rem);
+    min-height: 310px;
   }
   .site-footer__logo { width: 92px; }
 }
