@@ -282,29 +282,35 @@ a { color: inherit; }
 
 .hero__slide {
   min-width: 100%;
-  padding: 0 var(--container-pad);
+  padding: 0 clamp(1.5rem, 4.5vw, 4rem);
 }
 
 .hero__slide-inner {
-  max-width: var(--container-max);
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   display: grid;
-  grid-template-columns: 1.05fr 2.00fr 1.4fr;
+  grid-template-columns: 1.6fr 1.9fr 1.15fr;
   gap: clamp(1.5rem, 3vw, 3.5rem);
   align-items: center;
-  min-height: 580px;
+  min-height: 680px;
 }
 
 /* -- Hero text ------------------------------------------------- */
 .hero__title {
-  font-size: clamp(2.15rem, 3.1vw, 3.45rem);
-  font-weight: 800;
-  color: var(--c-gold);
+  font-size: 46px;
+  font-weight: 600;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 .hero__title strong {
-  color: var(--c-gold);
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 800;
 }
 
@@ -312,7 +318,10 @@ a { color: inherit; }
   font-size: clamp(1rem, 1.25vw, 1.28rem);
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--c-gold);
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 2rem;
 }
 
@@ -323,8 +332,8 @@ a { color: inherit; }
   background: var(--text-gradient);
   border: 3px solid rgba(201, 169, 110, 0.45);
   border-radius: var(--radius-full);
-  padding: 0.8rem 1.35rem;
-  font-size: clamp(0.86rem, 0.95vw, 1.05rem);
+  padding: 1.2rem 2.2rem;
+  font-size: clamp(0.86rem, 1.1vw, 1.2rem);
   color: var(--c-navy);
   box-shadow: inset 0 0 0 1px rgba(13, 27, 62, 0.08);
 }
@@ -343,7 +352,7 @@ a { color: inherit; }
 /* -- Hero vertical scrolling columns -------------------------- */
 .hero__photos {
   position: relative;
-  height: 580px;
+  height: 680px;
   overflow: hidden;
   display: flex;
   gap: clamp(1rem, 1.4vw, 1.55rem);
@@ -1009,6 +1018,7 @@ a { color: inherit; }
   .hero__text {
     grid-column: 2;
     grid-row: 1;
+    /* padding-left: 1rem; */
   }
   .hero__form-wrap {
     grid-column: 1 / -1;
