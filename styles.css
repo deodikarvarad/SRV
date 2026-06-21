@@ -19,6 +19,7 @@
 
   --hero-gradient:  linear-gradient(90deg, #07143B 0%, #231159 42%, #552079 100%);
   --must-visit-gradient: linear-gradient(180deg, #3C176B 0%, #080F38 82%);
+  --text-gradient: linear-gradient(90deg, #FFCC81 0%, #E9C79F 100%);;
 
   --radius-sm:   6px;
   --radius-md:   12px;
@@ -304,7 +305,7 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 0;
-  background: var(--c-cream);
+  background: var(--text-gradient);
   border: 3px solid rgba(201, 169, 110, 0.45);
   border-radius: var(--radius-full);
   padding: 0.8rem 1.35rem;
