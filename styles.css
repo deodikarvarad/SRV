@@ -324,7 +324,7 @@ a { color: inherit; }
 
 /* hero text */
 .hero__title {
-  font-size: 46px;
+  font-size: 40px;
   font-weight: 600;
   background: var(--text-gradient);
   -webkit-background-clip: text;
@@ -339,6 +339,7 @@ a { color: inherit; }
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
+  font-size: 50px;
 }
 
 .hero__subtitle {
