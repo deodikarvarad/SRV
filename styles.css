@@ -263,13 +263,14 @@ a { color: inherit; }
   background: #ffffff;
   border: 2px solid #ffffff;
   border-radius: 10px;
-  color: #2D1255;
+  color: #194C9C;
   padding: 0 22px;
   height: 44px;
   overflow: visible;
   font-size: 15px;
   font-weight: 700;
   gap: 0;
+  text-transform: none;
 }
 
 .site-header--scrolled .btn--register .btn__icon-box {
