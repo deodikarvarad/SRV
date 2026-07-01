@@ -260,9 +260,32 @@ a { color: inherit; }
 }
 
 .site-header--scrolled .btn--register {
-  background: var(--c-white);
-  border-color: var(--c-purple-mid);
-  color: var(--c-purple-mid);
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: #2D1255;
+  padding: 0 22px;
+  height: 44px;
+  overflow: visible;
+  font-size: 15px;
+  font-weight: 700;
+  gap: 0;
+}
+
+.site-header--scrolled .btn--register .btn__icon-box {
+  display: none;
+}
+
+.site-header--scrolled .btn--register span:last-child {
+  padding: 0;
+}
+
+.site-header--scrolled .btn--register span:last-child::after {
+  content: " →";
+  margin-left: 6px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1;
 }
 
 .site-header__container {
