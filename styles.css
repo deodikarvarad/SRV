@@ -1070,7 +1070,7 @@ text-transform: uppercase;
 .site-footer__office strong, .site-footer__contact strong {
   color: var(--c-white);
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
 }
 
 .site-footer__contact a {
